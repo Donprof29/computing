@@ -1,16 +1,12 @@
-# This is a sample Python script.
+"""
+Author: Don Prof
+Date: 18th June, 2023.
+Description: The program accepts an input from the user and
+            then concatenate the Strings.
+"""
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+firstName = input("Enter your first name ") #accepts input from user
+surname = input("Enter your surname ") #accepts input from user
+fullname = firstName + surname
+print(fullname)
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
