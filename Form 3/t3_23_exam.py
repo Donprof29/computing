@@ -18,11 +18,11 @@ while True: #keeps the whole program in a continuous loop
     item = int(input("Please enter the item number: ")) #accepts user input
     index = item -1 #declares a variable to save the list's index
     if index == 1: #condition
-        print(menu[index], "has been ordered") #output
+        print("Margherita has been ordered") #output
     elif item ==2: #condition
-        print(menu[index], "has been ordered")
+        print("Pepperoni has been ordered")
     elif item == 3: #condition
-        print(menu[index], "has been ordered")
+        print("Vegetarian has been ordered")
     else: #runs when an order is incorrect
         print("Sorry, your order cannot be processed.")
     ans = input("Would you like to order again? ") #accepts user input
