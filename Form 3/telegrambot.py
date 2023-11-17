@@ -12,8 +12,46 @@ Step 1: Use the terminal to run "pip install pyTelegramBotAPI"
 '''
 
 import telebot  #imports the telebot library
-TOKEN = "REPLACE_TOKEN"
+TOKEN = "6826707252:AAH-cJhS4bQ7f59yMBwu8mMyn6JLOXixVfw"
 bot = telebot.TeleBot(TOKEN)  # registers the bot
+
+
+#function for all keyboards
+def start_keyboard():
+    #create an object for the keyboardmarkup()
+    start_kb = telebot.types.InlineKeyboardMarkup()
+    start_kb.row(telebot.types.InlineKeyboardButton("Product & Service", callback_data="product"),
+                 telebot.types.InlineKeyboardButton("Pricing and Packages", callback_data="pricing"))
+
+    start_kb.row(telebot.types.InlineKeyboardButton("Technical Support",callback_data="technical"))
+    return start_kb
+
+
+
+
+#end of function of all keyboards
+
+
+
+
+
+# function for start command
+@bot.message_handler(commands=["start"])
+def start_message(message):
+    print("start command selected")
+    #String for message text
+    message_text = ("Welcome to Bit Cloud, an imaginary IT solutions"
+                    "company, we aim to enhance our customer services"
+                    "capabilities by developing an interactive chatbot."
+                    "This chatbot is developed to guide clients through"
+                    "their inquiries.\n Please select one"
+                    "of the following.")
+    bot.reply_to(message, message_text, reply_markup=start_keyboard())
+
+
+
+
+
 
 
 
