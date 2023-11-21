@@ -12,7 +12,7 @@ Step 1: Use =the terminal to run "pip install pyTelegramBotAPI"
 '''
 
 import telebot  #imports the telebot library
-TOKEN = "6826707252:AAH-cJhS4bQ7f59yMBwu8mMyn6JLOXixVfw"
+TOKEN = "REPLACE_TOKEN"
 bot = telebot.TeleBot(TOKEN)  # registers the bot
 
 
