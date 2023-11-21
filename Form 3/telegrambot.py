@@ -7,7 +7,7 @@ Group Members:
 Date: 2nd November, 2023.
 Description: A bot to help you purchase a game
 
-Step 1: Use the terminal to run "pip install pyTelegramBotAPI"
+Step 1: Use =the terminal to run "pip install pyTelegramBotAPI"
 
 '''
 
@@ -27,11 +27,26 @@ def start_keyboard():
     return start_kb
 
 
+def product_keyboard():
+    #create an object for the keyboardmarkup()
+    product_kb = telebot.types.InlineKeyboardMarkup()
+    product_kb.row(telebot.types.InlineKeyboardButton("Software solutions", callback_data="software"),
+                 telebot.types.InlineKeyboardButton("Cloud Computing", callback_data="cloud"))
+
+    product_kb.row(telebot.types.InlineKeyboardButton("Cybersecurity",callback_data="cyber"))
+    return product_kb
 
 
 #end of function of all keyboards
 
 
+#start of call back functions
+@bot.callback_query_handler(func=lambda call: True)
+def handle_callback_query(call): #handles all keyboard responses
+    if call.data == "product":
+        print("Product selected")
+        product_text = "Which area are you interested in?"
+        bot.send_message(call.message.chat.id, product_text, reply_markup=product_keyboard())
 
 
 
