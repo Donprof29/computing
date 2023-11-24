@@ -17,7 +17,7 @@ bot = telebot.TeleBot(TOKEN)  # registers the bot
 
 
 #function for all keyboards
-def start_keyboard():
+def start_keyboard(): #keyboard for start
     #create an object for the keyboardmarkup()
     start_kb = telebot.types.InlineKeyboardMarkup()
     start_kb.row(telebot.types.InlineKeyboardButton("Product & Service", callback_data="product"),
@@ -27,26 +27,52 @@ def start_keyboard():
     return start_kb
 
 
-def product_keyboard():
+def product_keyboard(): # keyboard for products menu
     #create an object for the keyboardmarkup()
     product_kb = telebot.types.InlineKeyboardMarkup()
-    product_kb.row(telebot.types.InlineKeyboardButton("Software solutions", callback_data="software"),
+    product_kb.row(telebot.types.InlineKeyboardButton("Software Solutions", callback_data="software"),
                  telebot.types.InlineKeyboardButton("Cloud Computing", callback_data="cloud"))
 
     product_kb.row(telebot.types.InlineKeyboardButton("Cybersecurity",callback_data="cyber"))
     return product_kb
 
+def pricing_keyboard(): # for pricing menu
+    #create an object for the keyboardmarkup()
+    pricing_kb = telebot.types.InlineKeyboardMarkup()
+    pricing_kb.row(telebot.types.InlineKeyboardButton("$0 - $500", callback_data="small"),
+                 telebot.types.InlineKeyboardButton("$500 - $1000", callback_data="medium"))
+
+    pricing_kb.row(telebot.types.InlineKeyboardButton("$1000 +",callback_data="large"))
+    return pricing_kb
+
+def tech_keyboard(): # technical menu
+    #create an object for the keyboardmarkup()
+    tech_kb = telebot.types.InlineKeyboardMarkup()
+    tech_kb.row(telebot.types.InlineKeyboardButton("Windows", callback_data="windows"),
+                 telebot.types.InlineKeyboardButton("Linux", callback_data="linux"))
+
+    tech_kb.row(telebot.types.InlineKeyboardButton("macOS", callback_data="mac"))
+    return tech_kb
 
 #end of function of all keyboards
 
 
-#start of call back functions
+#functions for callback
 @bot.callback_query_handler(func=lambda call: True)
-def handle_callback_query(call): #handles all keyboard responses
-    if call.data == "product":
-        print("Product selected")
-        product_text = "Which area are you interested in?"
-        bot.send_message(call.message.chat.id, product_text, reply_markup=product_keyboard())
+def handle_callback_query(call):
+    if call.data == "product": #change callbackdata
+        print("Product selected") #change String
+        product_text = "Which area are you interested in?" #change question
+        bot.send_message(call.message.chat.id, product_text, reply_markup=pricing_keyboard())
+
+    elif call.data == "yes": #change callbackdata
+        print("refund selected") #change String
+        pricing_text = "What is your budget range?" #change question
+        bot.send_message(call.message.chat.id, pricing_text, reply_markup=product_keyboard())
+
+
+# end of functions for callback
+
 
 
 
