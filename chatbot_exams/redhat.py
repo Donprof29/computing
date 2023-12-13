@@ -4,6 +4,8 @@ Benjamin Abbey
 Welch Appiah
 Benjamin Gakpe
 Daniel Gyamfi
+
+Bot Username: @fatherblack2_bot
 Date: 20th October, 2023.
 Descriptions : Testing telegram bot using Python language.
 Step 1: Install pyTelegramBotAPI using pop install pyTelegramBotAPI
@@ -13,7 +15,7 @@ Step 3: Register your telegram token using telebot.TeleBot(TOKEN)
 """
 
 import telebot  #imports the telegram library
-TOKEN = "6358476444:AAFLAFTQGqCb16_d2c3X1NYgSLUz4ZIYQ-M"
+TOKEN = "YOUR_TOKEN"
 bot = telebot.TeleBot(TOKEN) #registers the bot
 
 #function for all keyboards
